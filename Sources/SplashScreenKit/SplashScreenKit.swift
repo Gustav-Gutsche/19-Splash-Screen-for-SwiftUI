@@ -161,13 +161,13 @@ public struct SplashScreen: View {
                     Spacer(minLength: 0)
 
                     VStack(alignment: .leading, spacing: 14 * scale) {
-                        Image(systemName: "person.2.fill")
-                            .symbolRenderingMode(.palette)
-                            .foregroundStyle(.white, .white.opacity(0.58))
-                            .font(.system(size: 32 * scale, weight: .semibold))
-                            .frame(width: 44 * scale, alignment: .leading)
-
                         if footerText != nil {
+                            Image(systemName: "person.2.fill")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(.white, .white.opacity(0.58))
+                                .font(.system(size: 32 * scale, weight: .semibold))
+                                .frame(width: 44 * scale, alignment: .leading)
+
                             Text(footerAttributedText)
                                 .font(.system(size: 13 * scale, weight: .medium))
                                 .lineSpacing(1.5 * scale)

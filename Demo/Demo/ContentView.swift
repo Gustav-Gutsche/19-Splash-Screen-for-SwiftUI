@@ -10,7 +10,17 @@ import SplashScreenKit
 
 struct ContentView: View {
     var body: some View {
-        SplashScreen(
+        if ProcessInfo.processInfo.arguments.contains("--simple-mode") {
+            SplashScreen(
+                mode: .simple,
+                logoSystemName: "apple.logo",
+                title: "Welcome to",
+                product: "Sports",
+                caption: "Get real-time scores, stats, and standings for the teams and leagues you follow.",
+                cta: "Continue"
+            ) {}
+        } else {
+            SplashScreen(
             images: [
                 Photo("Apple TV 1"),
                 Photo("Apple TV 2"),
@@ -23,9 +33,10 @@ struct ContentView: View {
             product: "Apple TV",
             caption: "Browse all movies, TV shows, and more from Apple TV+. Watch all Apple Originals here.",
             cta: "Watch Now"
-        ) {
-            // Button Action
-            print("Hello, Apple TV!")
+            ) {
+                // Button Action
+                print("Hello, Apple TV!")
+            }
         }
     }
 }

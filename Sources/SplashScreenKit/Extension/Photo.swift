@@ -25,7 +25,6 @@ public struct Photo: Identifiable {
     }
 }
 
-@available(iOS 18.0, macOS 15.0, *)
 public struct ItemPhoto: View {
     public var photo: Photo
 
@@ -58,7 +57,6 @@ public struct ItemPhoto: View {
     }
 }
 
-@available(iOS 18.0, macOS 15.0, *)
 public struct ItemLabel: View {
     public var photo: Photo
 

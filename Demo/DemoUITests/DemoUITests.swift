@@ -23,6 +23,19 @@ final class DemoUITests: XCTestCase {
     }
 
     @MainActor
+    func testSimpleModeIsUsableOnIOS17() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["--simple-mode"]
+        app.launch()
+
+        XCTAssertTrue(app.staticTexts["Sports"].waitForExistence(timeout: 10))
+        let continueButton = app.buttons["Continue"]
+        XCTAssertTrue(continueButton.exists)
+        XCTAssertTrue(continueButton.isHittable)
+        continueButton.tap()
+    }
+
+    @MainActor
     func testExample() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()

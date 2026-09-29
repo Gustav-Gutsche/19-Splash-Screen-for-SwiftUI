@@ -23,12 +23,12 @@
 - **Advanced Text Effects:** Beautiful text rendering and transitions using SwiftUI 6.0 features.
 
 ## Environment / Tested on
-- 📲 iOS 18.0+
+- 📲 iOS 17.0+ / macOS 14.0+
 - Swift 6.0
 - Xcode 16.0+
 
 ## How to use
-Add the package to your project: ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+Add the package to your project: ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
 
 ### Carousel Mode (Default)
 The classic interactive experience with rotating images.
@@ -98,7 +98,7 @@ SplashScreen(
 <img width="670" height="752" alt="Simple2" src="https://github.com/user-attachments/assets/b3e52e6c-8e7b-4eef-8ef6-0f6557b216ef" />
 
 ## Known Issues
-- Only compatible with iOS 18+, leveraging the latest SwiftUI `TextRenderer` and visual effect APIs.
+- On iOS 18+, carousel text uses SwiftUI `TextRenderer` for per-glyph animation. On iOS 17, the same layout and content use a fade-and-offset text entrance.
 - Resizing: Carousel mode is optimized for Pro/Pro Max. Static mode includes a ScrollView to handle smaller devices and varying content lengths. Simple Mode scales its typography and spacing from the device width.
 
 ## Copyright

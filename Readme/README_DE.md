@@ -22,12 +22,12 @@
 - **Erweiterte Texteffekte:** Wunderschönes Text-Rendering und Übergänge mit SwiftUI 6.0 Funktionen.
 
 ## Umgebung / Getestet auf
-- 📲 iOS 18.0+ erforderlich
+- 📲 iOS 17.0+ / macOS 14.0+ erforderlich
 - Swift 6.0
 - Xcode 16.0+
 
 ## Verwendung
-Fügen Sie das Paket zu Ihrem Projekt hinzu: ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+Fügen Sie das Paket zu Ihrem Projekt hinzu: ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
 
 ### Karussell-Modus (Standard)
 Das klassische interaktive Erlebnis mit rotierenden Bildern.
@@ -75,7 +75,7 @@ SplashScreen(
 <img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
 ## Bekannte Probleme
-- Nur kompatibel mit iOS 18+, nutzt die neuesten SwiftUI `TextRenderer`- und Visual-Effect-APIs.
+- Ab iOS 18 nutzt der Karusselltext SwiftUI `TextRenderer` für die Animation einzelner Zeichen. Unter iOS 17 bleiben Layout und Inhalt erhalten; der Text erscheint mit einer kombinierten Einblend- und Verschiebungsanimation.
 - Größenänderung: Der Karussell-Modus ist für Pro/Pro Max optimiert. Der statische Modus enthält eine ScrollView, um kleinere Geräte und unterschiedliche Inhaltslängen zu unterstützen.
 
 ## Urheberrecht

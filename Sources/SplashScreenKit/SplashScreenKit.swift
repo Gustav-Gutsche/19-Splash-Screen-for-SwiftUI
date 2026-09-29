@@ -21,7 +21,6 @@ public struct SplashFeature: Identifiable {
     }
 }
 
-@available(iOS 18.0, macOS 15.0, *)
 public struct SplashScreen: View {
     @State var prVisible: Bool = false
     @State var ctaVisible: Bool = false
@@ -39,6 +38,7 @@ public struct SplashScreen: View {
     var footerLinkText: String?
     var footerLinkURL: URL?
     var ctaText: String
+    var ctaAccessibilityIdentifier: String?
     var ctaAction: () -> Void
     var secondaryCtaText: String?
     var secondaryCtaAction: (() -> Void)?
@@ -55,6 +55,7 @@ public struct SplashScreen: View {
         footerLink: String? = nil,
         footerLinkURL: URL? = nil,
         cta: String,
+        ctaAccessibilityIdentifier: String? = nil,
         secondaryCta: String? = nil,
         secondaryAction: (() -> Void)? = nil,
         action: @escaping () -> Void
@@ -70,6 +71,7 @@ public struct SplashScreen: View {
         self.footerLinkText = footerLink
         self.footerLinkURL = footerLinkURL
         self.ctaText = cta
+        self.ctaAccessibilityIdentifier = ctaAccessibilityIdentifier
         self.ctaAction = action
         self.secondaryCtaText = secondaryCta
         self.secondaryCtaAction = secondaryAction
@@ -159,13 +161,13 @@ public struct SplashScreen: View {
                     Spacer(minLength: 0)
 
                     VStack(alignment: .leading, spacing: 14 * scale) {
-                        Image(systemName: "person.2.fill")
-                            .symbolRenderingMode(.palette)
-                            .foregroundStyle(.white, .white.opacity(0.58))
-                            .font(.system(size: 32 * scale, weight: .semibold))
-                            .frame(width: 44 * scale, alignment: .leading)
-
                         if footerText != nil {
+                            Image(systemName: "person.2.fill")
+                                .symbolRenderingMode(.palette)
+                                .foregroundStyle(.white, .white.opacity(0.58))
+                                .font(.system(size: 32 * scale, weight: .semibold))
+                                .frame(width: 44 * scale, alignment: .leading)
+
                             Text(footerAttributedText)
                                 .font(.system(size: 13 * scale, weight: .medium))
                                 .lineSpacing(1.5 * scale)
@@ -181,6 +183,7 @@ public struct SplashScreen: View {
                                 .padding(.vertical, 18 * scale)
                         }
                         .background(.white, in: Capsule())
+                        .accessibilityIdentifier(ctaAccessibilityIdentifier ?? "")
                         .padding(.top, 8 * scale)
 
                         if let secondaryCtaText = secondaryCtaText {
@@ -312,6 +315,7 @@ public struct SplashScreen: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .buttonBorderShape(.capsule)
+                .accessibilityIdentifier(ctaAccessibilityIdentifier ?? "")
                 .tint(.blue)
                 .padding(.horizontal, 40)
                 
@@ -412,13 +416,15 @@ public struct SplashScreen: View {
     public func startAutoScroll(_ totalWidth: CGFloat) {
         timer?.invalidate()
         let newTimer = Timer(timeInterval: 0.016, repeats: true) { _ in
-            if !isDragging && !photos.isEmpty {
-                scrollOffset -= 0.6
-                // With virtual indices, we rarely need to truncate.
-                // Truncating only when idle prevents animation "flicker".
-                let totalCarouselWidth = CGFloat(photos.count) * itemWidth
-                if abs(scrollOffset) > totalCarouselWidth * 100 {
-                    scrollOffset = scrollOffset.truncatingRemainder(dividingBy: totalCarouselWidth)
+            // This timer is installed on RunLoop.main below.
+            MainActor.assumeIsolated {
+                if !isDragging && !photos.isEmpty {
+                    scrollOffset -= 0.6
+                    // Truncating only when idle prevents animation flicker.
+                    let totalCarouselWidth = CGFloat(photos.count) * itemWidth
+                    if abs(scrollOffset) > totalCarouselWidth * 100 {
+                        scrollOffset = scrollOffset.truncatingRemainder(dividingBy: totalCarouselWidth)
+                    }
                 }
             }
         }
@@ -440,20 +446,29 @@ public struct SplashScreen: View {
                     Text(title)
                         .font(.system(size: 20, weight: .bold, design: .default))
                         .foregroundStyle(.secondary)
-                        .transition(TextTransition())
+                        .modifier(CompatibleTextTransition())
                         .lineLimit(1)
                         .minimumScaleFactor(0.5)
-                    Text(product)
-                        .font(.system(size: 50, weight: .bold, design: .default))
-                        .customAttribute(EmphasisAttribute())
-                        .transition(TextTransition())
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.1)
-                        .padding(.bottom,5)
+                    if #available(iOS 18.0, macOS 15.0, *) {
+                        Text(product)
+                            .font(.system(size: 50, weight: .bold, design: .default))
+                            .customAttribute(EmphasisAttribute())
+                            .modifier(CompatibleTextTransition())
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.1)
+                            .padding(.bottom, 5)
+                    } else {
+                        Text(product)
+                            .font(.system(size: 50, weight: .bold, design: .default))
+                            .modifier(CompatibleTextTransition())
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.1)
+                            .padding(.bottom, 5)
+                    }
                     Text(caption)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
-                        .transition(TextTransition())
+                        .modifier(CompatibleTextTransition())
                     Button(action: ctaAction) {
                         Text(ctaText)
                             .font(.system(size: 15, weight: .bold, design: .default))
@@ -461,6 +476,7 @@ public struct SplashScreen: View {
                             .padding(.horizontal, 10)
                     }.buttonStyle(.borderedProminent)
                     .buttonBorderShape(.capsule)
+                    .accessibilityIdentifier(ctaAccessibilityIdentifier ?? "")
                     .tint(.white)
                     .foregroundStyle(.black)
                     .padding(25)
@@ -477,7 +493,6 @@ public struct SplashScreen: View {
         }
 }
 
-@available(iOS 18.0, macOS 15.0, *)
 struct SplashScreenImage: View {
     var photo: Photo
     
@@ -508,6 +523,18 @@ struct SplashScreenImage: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
             }
+        }
+    }
+}
+
+/// Keep the iOS 18 glyph animation while providing the same entrance timing on iOS 17.
+private struct CompatibleTextTransition: ViewModifier {
+    @ViewBuilder
+    func body(content: Content) -> some View {
+        if #available(iOS 18.0, macOS 15.0, *) {
+            content.transition(TextTransition())
+        } else {
+            content.transition(.opacity.combined(with: .offset(y: 12)))
         }
     }
 }

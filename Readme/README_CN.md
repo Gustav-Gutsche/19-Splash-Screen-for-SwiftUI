@@ -1,6 +1,6 @@
 # SplashScreenKit
 
-> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
+> **Fork release 27.0.3:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### SwiftUI 全新启动页 (Splash Screen)
 
 | Region | Languages |
@@ -13,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## 版本
-**27.0.2 (稳定版本)** <br>
+**27.0.3 (稳定版本)** <br>
 *针对高性能交互进行了优化，确保零卡顿体验。*
 
 - **无缝无限轮播：** 全新的虚拟索引逻辑，防止“卡片飞走”并确保流畅的无限旋转。

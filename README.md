@@ -11,7 +11,7 @@
 | **ME & Africa** | [العربية](./Readme/README_AR.md) [Kiswahili](./Readme/README_SW.md) |
 
 ## Version
-**27.0.2 (iOS 17-compatible fork)** <br>
+**27.0.3 (iOS 17-compatible fork)** <br>
 *All three modes support iOS 17. Includes automatic carousel sizing for smaller phones.*
 
 - **Simple Mode:** Full-screen text-first splash screen with configurable SF Symbol logo, gradient background, footer copy, and inline privacy link.
@@ -31,7 +31,7 @@ Minimum supported versions and tested versions are different: this release is ve
 
 ## Install this fork
 
-In Xcode, choose **File → Add Package Dependencies**, enter the URL below and select **Up to Next Major Version**, starting at **27.0.2**:
+In Xcode, choose **File → Add Package Dependencies**, enter the URL below and select **Up to Next Major Version**, starting at **27.0.3**:
 
 ```text
 https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI
@@ -42,7 +42,7 @@ For a Swift package:
 ```swift
 .package(
     url: "https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI",
-    from: "27.0.2"
+    from: "27.0.3"
 )
 ```
 

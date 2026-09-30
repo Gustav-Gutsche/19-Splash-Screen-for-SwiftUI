@@ -1,6 +1,6 @@
 # SplashScreenKit
 
-> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
+> **Fork release 27.0.3:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### SwiftUI के लिए एक नया स्पलैश स्क्रीन
 
 | Region | Languages |
@@ -13,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## वर्शन
-**27.0.2 (स्थिर रिलीज़)** <br>
+**27.0.3 (स्थिर रिलीज़)** <br>
 *बिना किसी लैग के उच्च-प्रदर्शन इंटरैक्शन के लिए अनुकूलित।*
 
 - **निर्बाध अनंत हिंडोला (Carousel):** नया वर्चुअल-इंडेक्स लॉजिक "उड़ते हुए कार्ड" को रोकता है और सुचारू अनंत रोटेशन सुनिश्चित करता है।

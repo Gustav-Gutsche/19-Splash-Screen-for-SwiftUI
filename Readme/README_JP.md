@@ -1,4 +1,6 @@
 # SplashScreenKit
+
+> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### SwiftUIのための新しいスプラッシュ画面
 
 | Region | Languages |
@@ -11,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## バージョン
-**2.2.3 (安定版リリース)** <br>
+**27.0.2 (安定版リリース)** <br>
 *カクつきのない、高性能なインタラクションに最適化されています。*
 
 - **シームレスな無限カルーセル:** 新しい仮想インデックスロジックにより「カードが飛んでいく」現象を防ぎ、スムーズな無限回転を保証します。
@@ -22,12 +24,12 @@
 - **高度なテキスト効果:** SwiftUI 6.0の機能を活用した美しいテキストレンダリングとトランジション。
 
 ## 環境 / テスト済み
-- 📲 iOS 18.0以上必須
+- 📲 iOS 17.0以上必須 / macOS 14.0+
 - Swift 6.0
 - Xcode 16.0以上
 
 ## 使い方
-パッケージをプロジェクトに追加してください: ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+パッケージをプロジェクトに追加してください: ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
 
 ### カルーセルモード (デフォルト)
 画像を回転させるクラシックなインタラクティブ体験。
@@ -75,7 +77,7 @@ SplashScreen(
 <img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
 ## 既知の問題
-- 最新のSwiftUI `TextRenderer` および視覚効果APIを活用しているため、iOS 18以降のみ対応しています。
+- このフォークは iOS 17 と macOS 14 に対応しています。iOS 18 / macOS 15 以降では TextRenderer、それ以前ではフェードと移動のトランジションを使用します。
 - リサイズ: カルーセルモードはPro/Pro Maxに最適化されています。スタティックモードはScrollViewを含んでおり、より小さなデバイスや様々なコンテンツの長さに対応しています。
 
 ## 著作権

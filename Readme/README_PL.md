@@ -1,4 +1,6 @@
 # SplashScreenKit
+
+> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### Nowy ekran powitalny dla SwiftUI
 
 | Region | Languages |
@@ -11,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Wersja
-**2.2.3 (Wersja Stabilna)** <br>
+**27.0.2 (Wersja Stabilna)** <br>
 *Zoptymalizowany pod kątem wysokiej wydajności interakcji bez zacięć.*
 
 - **Płynna nieskończona karuzela:** Nowa logika wirtualnych indeksów zapobiega „latającym kartom” i zapewnia gładką, nieskończoną rotację.
@@ -22,12 +24,12 @@
 - **Zaawansowane efekty tekstowe:** Piękne renderowanie tekstu i przejścia przy użyciu funkcji SwiftUI 6.0.
 
 ## Środowisko / Testowano na
-- 📲 Wymagany iOS 18.0+
+- 📲 Wymagany iOS 17.0+ / macOS 14.0+
 - Swift 6.0
 - Xcode 16.0+
 
 ## Jak używać
-Dodaj pakiet do swojego projektu: ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+Dodaj pakiet do swojego projektu: ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
 
 ### Tryb karuzeli (Domyślny)
 Klasyczne interaktywne doświadczenie z rotacyjnymi obrazami.
@@ -75,7 +77,7 @@ SplashScreen(
 <img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
 ## Znane problemy
-- Kompatybilny tylko z iOS 18+, wykorzystuje najnowsze interfejsy API SwiftUI `TextRenderer` i efekty wizualne.
+- Ten fork obsługuje iOS 17 i macOS 14. TextRenderer działa od iOS 18 / macOS 15; starsze systemy używają przejścia z zanikiem i przesunięciem.
 - Zmiana rozmiaru: Tryb karuzeli jest zoptymalizowany dla Pro/Pro Max. Tryb statyczny zawiera ScrollView, aby obsłużyć mniejsze urządzenia i różne długości treści.
 
 ## Prawa autorskie

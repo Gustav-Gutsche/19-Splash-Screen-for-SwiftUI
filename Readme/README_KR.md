@@ -1,4 +1,6 @@
 # SplashScreenKit
+
+> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### SwiftUI를 위한 새로운 스플래시 화면
 
 | Region | Languages |
@@ -11,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## 버전
-**2.2.3 (안정화 버전)** <br>
+**27.0.2 (안정화 버전)** <br>
 *끊김 없는 고성능 상호작용을 위해 최적화되었습니다.*
 
 - **원활한 무한 캐러셀:** 새로운 가상 인덱스 로직으로 "카드가 튀는" 현상을 방지하고 매끄러운 무한 회전을 보장합니다.
@@ -22,12 +24,12 @@
 - **고급 텍스트 효과:** SwiftUI 6.0 기능을 사용한 아름다운 텍스트 렌더링 및 전환.
 
 ## 환경 / 테스트 완료
-- 📲 iOS 18.0 이상 필요
+- 📲 iOS 17.0 이상 필요 / macOS 14.0+
 - Swift 6.0
 - Xcode 16.0 이상
 
 ## 사용 방법
-프로젝트에 패키지를 추가하세요: ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+프로젝트에 패키지를 추가하세요: ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
 
 ### 캐러셀 모드 (기본값)
 이미지가 회전하는 클래식한 대화형 경험.
@@ -75,7 +77,7 @@ SplashScreen(
 <img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
 ## 알려진 문제
-- 최신 SwiftUI `TextRenderer` 및 시각 효과 API를 활용하므로 iOS 18 이상만 호환됩니다.
+- 이 포크는 iOS 17 및 macOS 14를 지원합니다. iOS 18 / macOS 15 이상에서는 TextRenderer를 사용하고, 이전 버전에서는 페이드와 이동 전환을 사용합니다.
 - 크기 조정: 캐러셀 모드는 Pro/Pro Max에 최적화되어 있습니다. 정적 모드에는 작은 기기와 다양한 콘텐츠 길이를 처리하기 위한 ScrollView가 포함되어 있습니다.
 
 ## 저작권

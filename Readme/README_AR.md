@@ -1,4 +1,6 @@
 # SplashScreenKit
+
+> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### شاشة ترحيب جديدة لـ SwiftUI
 
 | Region | Languages |
@@ -11,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## الإصدار
-**2.2.3 (إصدار مستقر)** <br>
+**27.0.2 (إصدار مستقر)** <br>
 *تم تحسينه للتفاعل عالي الأداء مع انعدام التأخير.*
 
 - **دوار لا نهائي سلس:** منطق الفهرس الافتراضي الجديد يمنع "البطاقات الطائرة" ويضمن دورانًا لا نهائيًا سلسًا.
@@ -22,12 +24,12 @@
 - **تأثيرات نصية متقدمة:** عرض نصوص وانتقالات جميلة باستخدام ميزات SwiftUI 6.0.
 
 ## البيئة / تم الاختبار على
-- 📲 يتطلب iOS 18.0+
+- 📲 يتطلب iOS 17.0+ / macOS 14.0+
 - Swift 6.0
 - Xcode 16.0+
 
 ## كيفية الاستخدام
-أضف الحزمة إلى مشروعك: ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+أضف الحزمة إلى مشروعك: ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
 
 ### وضع الدوار (افتراضي)
 التجربة التفاعلية الكلاسيكية مع الصور الدوارة.
@@ -75,7 +77,7 @@ SplashScreen(
 <img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
 ## المشكلات المعروفة
-- متوافق فقط مع iOS 18+، مع الاستفادة من أحدث واجهات برمجة تطبيقات `TextRenderer` والتأثيرات المرئية في SwiftUI.
+- يدعم هذا الفرع iOS 17 وmacOS 14. تعمل تأثيرات TextRenderer على iOS 18 وmacOS 15 أو أحدث، مع انتقال تلاشي وإزاحة على الأنظمة الأقدم.
 - تغيير الحجم: وضع الدوار محسن لأجهزة Pro/Pro Max. يتضمن الوضع الثابت ScrollView للتعامل مع الأجهزة الأصغر وأطوال المحتوى المتغيرة.
 
 ## حقوق الطبع والنشر

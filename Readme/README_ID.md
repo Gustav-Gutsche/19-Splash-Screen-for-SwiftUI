@@ -1,4 +1,6 @@
 # SplashScreenKit
+
+> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### Layar Splash Baru untuk SwiftUI
 
 | Region | Languages |
@@ -11,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Versi
-**2.2.3 (Rilis Stabil)** <br>
+**27.0.2 (Rilis Stabil)** <br>
 *Dioptimalkan untuk interaksi performa tinggi tanpa hambatan.*
 
 - **Carousel Tak Terbatas yang Mulus:** Logika indeks virtual baru mencegah "kartu terbang" dan memastikan rotasi tak terbatas yang lancar.
@@ -22,12 +24,12 @@
 - **Efek Teks Lanjutan:** Rendering teks dan transisi yang indah menggunakan fitur SwiftUI 6.0.
 
 ## Lingkungan / Diuji pada
-- 📲 Memerlukan iOS 18.0+
+- 📲 Memerlukan iOS 17.0+ / macOS 14.0+
 - Swift 6.0
 - Xcode 16.0+
 
 ## Cara Penggunaan
-Tambahkan paket ke proyek Anda: ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+Tambahkan paket ke proyek Anda: ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
 
 ### Mode Carousel (Default)
 Pengalaman interaktif klasik dengan gambar yang berputar.
@@ -75,7 +77,7 @@ SplashScreen(
 <img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
 ## Masalah yang Diketahui
-- Hanya kompatibel dengan iOS 18+, memanfaatkan API `TextRenderer` dan efek visual SwiftUI terbaru.
+- Fork ini mendukung iOS 17 dan macOS 14. TextRenderer digunakan pada iOS 18 / macOS 15 atau lebih baru; sistem lama memakai transisi fade dan offset.
 - Perubahan Ukuran: Mode Carousel dioptimalkan untuk Pro/Pro Max. Mode Statis menyertakan ScrollView untuk menangani perangkat yang lebih kecil dan panjang konten yang bervariasi.
 
 ## Hak Cipta

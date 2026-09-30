@@ -33,6 +33,38 @@ final class DemoUITests: XCTestCase {
         XCTAssertTrue(continueButton.exists)
         XCTAssertTrue(continueButton.isHittable)
         continueButton.tap()
+        XCTAssertTrue(app.staticTexts["demo.ready"].waitForExistence(timeout: 5))
+    }
+
+    @MainActor
+    func testCarouselIsUsableWithoutAppLayoutWorkarounds() {
+        assertIntroductionCanContinue(arguments: [])
+    }
+
+    @MainActor
+    func testEmptyCarouselCanContinueWithoutCrashing() {
+        assertIntroductionCanContinue(arguments: ["--empty-carousel"])
+    }
+
+    @MainActor
+    func testStaticModeIsUsableOnIOS17() {
+        assertIntroductionCanContinue(arguments: ["--static-mode"])
+    }
+
+    @MainActor
+    private func assertIntroductionCanContinue(arguments: [String]) {
+        let app = XCUIApplication()
+        app.launchArguments = arguments
+        app.launch()
+        let button = app.buttons["Watch Now"]
+        XCTAssertTrue(button.waitForExistence(timeout: 10))
+        XCTAssertTrue(button.isHittable, app.debugDescription)
+        let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        shot.name = "SplashScreenKit introduction"
+        shot.lifetime = .keepAlways
+        add(shot)
+        button.tap()
+        XCTAssertTrue(app.staticTexts["demo.ready"].waitForExistence(timeout: 5))
     }
 
     @MainActor

@@ -1,4 +1,6 @@
 # SplashScreenKit
+
+> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### SwiftUI için Yeni Bir Karşılama Ekranı
 
 | Region | Languages |
@@ -11,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Versiyon
-**2.2.3 (Stabil Sürüm)** <br>
+**27.0.2 (Stabil Sürüm)** <br>
 *Sarsıntısız ve yüksek performanslı etkileşimler için optimize edildi.*
 
 - **Kesintisiz Sonsuz Atlıkarınca:** Yeni sanal dizin mantığı "uçan kartları" önler ve akıcı bir sonsuz rotasyon sağlar.
@@ -22,12 +24,12 @@
 - **Gelişmiş Metin Efektleri:** SwiftUI 6.0 özelliklerini kullanarak harika metin oluşturma ve geçişler.
 
 ## Ortam / Test Edilen Platformlar
-- 📲 iOS 18.0+ gereklidir
+- 📲 iOS 17.0+ gereklidir / macOS 14.0+
 - Swift 6.0
 - Xcode 16.0+
 
 ## Nasıl Kullanılır
-Paketi projenize ekleyin: ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+Paketi projenize ekleyin: ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
 
 ### Atlıkarınca Modu (Varsayılan)
 Dönen görüntülerle klasik etkileşimli deneyim.
@@ -75,7 +77,7 @@ SplashScreen(
 <img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
 ## Bilinen Sorunlar
-- Sadece iOS 18+ ile uyumludur, en son SwiftUI `TextRenderer` ve görsel efekt API'lerini kullanır.
+- Bu fork iOS 17 ve macOS 14 destekler. iOS 18 / macOS 15 ve sonrasında TextRenderer, eski sistemlerde solma ve kaydırma geçişi kullanılır.
 - Yeniden Boyutlandırma: Atlıkarınca modu Pro/Pro Max için optimize edilmiştir. Statik mod, daha küçük cihazları ve değişen içerik uzunluklarını yönetmek için bir ScrollView içerir.
 
 ## Telif Hakkı

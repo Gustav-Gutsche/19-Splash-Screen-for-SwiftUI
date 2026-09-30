@@ -1,4 +1,6 @@
 # SplashScreenKit
+
+> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### Skrini Mpya ya Kukaribisha kwa SwiftUI
 
 | Region | Languages |
@@ -11,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Toleo
-**2.2.3 (Toleo Imara)** <br>
+**27.0.2 (Toleo Imara)** <br>
 *Imeboreshwa kwa mwingiliano wa utendaji wa juu bila kukwama.*
 
 - **Carousel Isiyo na Mwisho Iliyolainika:** Mantiki mpya ya faharisi ya mtandao huzuia "kadi zinazoruka" na kuhakikisha mzunguko usio na mwisho laini.
@@ -22,12 +24,12 @@
 - **Athari za Maandishi ya Juu:** Utoaji wa maandishi mzuri na mabadiliko kwa kutumia vipengele vya SwiftUI 6.0.
 
 ## Mazingira / Imejaribiwa kwenye
-- 📲 iOS 18.0+ inahitajika
+- 📲 iOS 17.0+ inahitajika / macOS 14.0+
 - Swift 6.0
 - Xcode 16.0+
 
 ## Jinsi ya kutumia
-Ongeza kifurushi kwenye mradi wako: ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+Ongeza kifurushi kwenye mradi wako: ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
 
 ### Hali ya Carousel (Chaguo-msingi)
 Uzoefu wa kawaida wa maingiliano na picha zinazozunguka.
@@ -75,7 +77,7 @@ SplashScreen(
 <img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
 ## Masuala Yanayojulikana
-- Inatumika tu na iOS 18+, ikitumia API za hivi karibuni za SwiftUI `TextRenderer` na athari za kuona.
+- Fork hii inasaidia iOS 17 na macOS 14. TextRenderer hutumiwa kwenye iOS 18 / macOS 15 au mpya zaidi; mifumo ya zamani hutumia mpito wa kufifia na kusogea.
 - Kubadilisha ukubwa: Njia ya Carousel imeboreshwa kwa Pro/Pro Max. Njia tuli inajumuisha ScrollView ili kushughulikia vifaa vidogo na urefu tofauti wa maudhui.
 
 ## Hakimiliki

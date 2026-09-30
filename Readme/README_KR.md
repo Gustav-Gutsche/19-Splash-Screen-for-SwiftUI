@@ -1,6 +1,6 @@
 # SplashScreenKit
 
-> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
+> **Fork release 27.0.3:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### SwiftUI를 위한 새로운 스플래시 화면
 
 | Region | Languages |
@@ -13,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## 버전
-**27.0.2 (안정화 버전)** <br>
+**27.0.3 (안정화 버전)** <br>
 *끊김 없는 고성능 상호작용을 위해 최적화되었습니다.*
 
 - **원활한 무한 캐러셀:** 새로운 가상 인덱스 로직으로 "카드가 튀는" 현상을 방지하고 매끄러운 무한 회전을 보장합니다.

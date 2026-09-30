@@ -81,7 +81,7 @@ public struct SplashScreen: View {
         ZStack {
             if mode == .carousel {
                 GeometryReader { geometry in
-                    let layoutHeight = max(geometry.size.height, 840)
+                    let layoutHeight = max(geometry.size.height, 880)
                     let scale = max(geometry.size.height, 1) / layoutHeight
 
                     carouselLayout
@@ -458,7 +458,7 @@ public struct SplashScreen: View {
     }
     
     public var cta: some View {
-            VStack {
+            VStack(spacing: 12) {
                 if ctaVisible {
                     Text(title)
                         .font(.system(size: 20, weight: .bold, design: .default))
@@ -468,23 +468,24 @@ public struct SplashScreen: View {
                         .minimumScaleFactor(0.5)
                     if #available(iOS 18.0, macOS 15.0, *) {
                         Text(product)
-                            .font(.system(size: 50, weight: .bold, design: .default))
+                            .font(.system(size: 64, weight: .bold, design: .default))
                             .customAttribute(EmphasisAttribute())
                             .modifier(CompatibleTextTransition())
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
-                            .padding(.bottom, 5)
+                            .padding(.bottom, 12)
                     } else {
                         Text(product)
-                            .font(.system(size: 50, weight: .bold, design: .default))
+                            .font(.system(size: 64, weight: .bold, design: .default))
                             .modifier(CompatibleTextTransition())
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
-                            .padding(.bottom, 5)
+                            .padding(.bottom, 12)
                     }
                     Text(caption)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
+                        .padding(.horizontal, 24)
                         .modifier(CompatibleTextTransition())
                     Button(action: ctaAction) {
                         Text(ctaText)

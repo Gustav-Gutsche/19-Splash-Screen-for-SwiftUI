@@ -1,6 +1,6 @@
 # SplashScreenKit
 
-> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
+> **Fork release 27.0.3:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### Skrini Mpya ya Kukaribisha kwa SwiftUI
 
 | Region | Languages |
@@ -13,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Toleo
-**27.0.2 (Toleo Imara)** <br>
+**27.0.3 (Toleo Imara)** <br>
 *Imeboreshwa kwa mwingiliano wa utendaji wa juu bila kukwama.*
 
 - **Carousel Isiyo na Mwisho Iliyolainika:** Mantiki mpya ya faharisi ya mtandao huzuia "kadi zinazoruka" na kuhakikisha mzunguko usio na mwisho laini.

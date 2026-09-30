@@ -1,10 +1,10 @@
 # iOS 17 compatibility in this fork
 
-Version 27.0.2 supports iOS 17.0 and macOS 14.0. The package requires a Swift 6 toolchain (Xcode 16 or newer); this compiler requirement does not raise the app's minimum operating-system version.
+Version 27.0.3 supports iOS 17.0 and macOS 14.0. The package requires a Swift 6 toolchain (Xcode 16 or newer); this compiler requirement does not raise the app's minimum operating-system version.
 
 ## Integration
 
-Use `https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI`, with a version requirement starting at `27.0.2`. Add the `SplashScreenKit` product to the app target, keep its deployment target at iOS 17.0 or later, and `import SplashScreenKit`.
+Use `https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI`, with a version requirement starting at `27.0.3`. Add the `SplashScreenKit` product to the app target, keep its deployment target at iOS 17.0 or later, and `import SplashScreenKit`.
 
 The original `1998code` URL points to a different package that requires iOS 18. Existing projects pinned to an older commit must update their requirement to consume this release.
 
@@ -12,11 +12,13 @@ The original `1998code` URL points to a different package that requires iOS 18. 
 
 - Carousel, Static and Simple Mode run on iOS 17. The rotating photos continue to animate there.
 - Per-glyph `TextRenderer` transitions use iOS 18 / macOS 15 when available. Earlier systems use the same text with a fade-and-offset entrance.
-- The carousel fits its existing 840-point minimum canvas to the available height. Smaller phones no longer require a scale wrapper in the consuming app.
+- The carousel fits its existing 880-point minimum canvas to the available height. Smaller phones no longer require a scale wrapper in the consuming app.
 - Transient zero-height layout passes are guarded. An empty image array no longer triggers a modulo-by-zero crash; text and the action remain available.
 - Bundled images are supported by `Photo("AssetName")`. Remote URLs remain optional and retain their existing loading behavior.
 
-## Verification on 2026-09-30
+## Compatibility baseline on 2026-09-30
+
+The complete three-mode matrix below was recorded for 27.0.2. Version 27.0.3 changes carousel typography; its current checks are listed in the typography section below.
 
 | Scope | Minimum supported | Actually tested | Evidence |
 | --- | --- | --- | --- |
@@ -30,3 +32,9 @@ Local result bundles: `.build/iOS17-release-final.xcresult` and `.build/iOS27-re
 Native macOS rendering and physical iOS devices were not tested for this release. The Xcode 16.4 checks compile the library; simulator UI tests use Xcode 27.0. The default demo uses the bundled reference images already present in this repository; no Repeatly-specific photos or app logic are included.
 
 The text attribute helper is explicitly marked iOS 18 / macOS 15, like its renderer and transition. Older SDKs therefore never require its modern protocol in the iOS 17 path. Xcode 16.4 build logs: `.build/qa/swift16.4-ios-build.log` and `.build/qa/swift16.4-macos-build.log`.
+
+## Carousel typography in 27.0.3
+
+The product name uses a 64-point bold base font. The description has an additional 24-point horizontal inset and a 24-point gap below the product name (12-point stack spacing plus 12-point product padding). The minimum carousel canvas is 880 points so that the larger text still fits on small phones. iOS 17 and newer systems use the same sizes and spacing.
+
+Typography verification: the standalone demo carousel passed on iOS 17.5 / iPhone SE (`.build/typography-iOS17.xcresult`), and the library cross-build with Xcode 16.4 targeting iOS 17 passed (`.build/qa/typography-ios17-build.log`). Repeatly consuming the new source passed four navigation/layout checks on iOS 17.5 and 27.2 (normal and largest accessibility text), plus its macOS Debug build. Its iPhone 17e rendering was visually checked against the supplied reference.

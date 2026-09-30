@@ -11,7 +11,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Version
-**27.0.2 (iOS-17-kompatibler Fork)** <br>
+**27.0.3 (iOS-17-kompatibler Fork)** <br>
 *Alle drei Modi unterstützen iOS 17. Das Karussell passt sich auch kleineren iPhones an.*
 
 - **Nahtloses unendliches Karussell:** Neue virtuelle Index-Logik verhindert „fliegende Karten“ und sorgt für eine reibungslose unendliche Rotation.
@@ -28,7 +28,7 @@
 
 ## Installation dieses Forks
 
-In Xcode unter **File → Add Package Dependencies** die folgende URL eintragen und **Up to Next Major Version** ab **27.0.2** wählen:
+In Xcode unter **File → Add Package Dependencies** die folgende URL eintragen und **Up to Next Major Version** ab **27.0.3** wählen:
 
 ```text
 https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI

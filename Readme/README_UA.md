@@ -1,6 +1,6 @@
 # SplashScreenKit
 
-> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
+> **Fork release 27.0.3:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### Новий екран привітання для SwiftUI
 
 | Region | Languages |
@@ -13,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Версія
-**27.0.2 (Стабільний реліз)** <br>
+**27.0.3 (Стабільний реліз)** <br>
 *Оптимізовано для високопродуктивної взаємодії без затримок.*
 
 - **Безшовна нескінченна карусель:** Нова логіка віртуальних індексів запобігає «літаючим карткам» та забезпечує плавне нескінченне обертання.

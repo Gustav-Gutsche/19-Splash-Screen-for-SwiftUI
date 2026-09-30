@@ -11,20 +11,32 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## Version
-**2.2.3 (Stabile Version)** <br>
-*Optimiert für Hochleistungs-Interaktion ohne Ruckeln.*
+**27.0.2 (iOS-17-kompatibler Fork)** <br>
+*Alle drei Modi unterstützen iOS 17. Das Karussell passt sich auch kleineren iPhones an.*
 
 - **Nahtloses unendliches Karussell:** Neue virtuelle Index-Logik verhindert „fliegende Karten“ und sorgt für eine reibungslose unendliche Rotation.
 - **Leistungsoptimiert:** Metal-beschleunigtes Rendering (`drawingGroup`) und effiziente Updates pro Frame via `RunLoop`.
 - **Momentum-Scrolling:** Butterweiche, geschwindigkeitsbasierte interaktive Gesten mit nativem Verzögerungsgefühl.
 - **AsyncImage-Unterstützung:** Vorvalidierte URL-Handhabung für verzögerungsfreies Laden von Remote-Bildern.
-- **Zwei Anzeigemodi:** Wählen Sie zwischen dynamischen `.carousel`- und eleganten `.static`-Layouts.
+- **Drei Anzeigemodi:** `.carousel`, `.static` und `.simple` unterstützen iOS 17.
 - **Erweiterte Texteffekte:** Wunderschönes Text-Rendering und Übergänge mit SwiftUI 6.0 Funktionen.
 
 ## Umgebung / Getestet auf
 - 📲 iOS 17.0+ / macOS 14.0+ erforderlich
 - Swift 6.0
 - Xcode 16.0+
+
+## Installation dieses Forks
+
+In Xcode unter **File → Add Package Dependencies** die folgende URL eintragen und **Up to Next Major Version** ab **27.0.2** wählen:
+
+```text
+https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI
+```
+
+Das Mindestziel deiner App kann bei **iOS 17.0** bleiben. Zum Kompilieren benötigt das Paket Swift 6 / Xcode 16 oder neuer. Der ursprüngliche `1998code`-Fork benötigt iOS 18; verwende daher die URL oben. Bei bestehenden Projekten die Paketanforderung aktualisieren und die Abhängigkeiten neu auflösen.
+
+Die geprüften Versionen und Nachweise stehen in [der Kompatibilitätsdokumentation](../docs/IOS17-COMPATIBILITY.md).
 
 ## Verwendung
 Fügen Sie das Paket zu Ihrem Projekt hinzu: ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
@@ -76,7 +88,7 @@ SplashScreen(
 
 ## Bekannte Probleme
 - Ab iOS 18 nutzt der Karusselltext SwiftUI `TextRenderer` für die Animation einzelner Zeichen. Unter iOS 17 bleiben Layout und Inhalt erhalten; der Text erscheint mit einer kombinierten Einblend- und Verschiebungsanimation.
-- Größenänderung: Der Karussell-Modus ist für Pro/Pro Max optimiert. Der statische Modus enthält eine ScrollView, um kleinere Geräte und unterschiedliche Inhaltslängen zu unterstützen.
+- Größenänderung: Das Karussell passt seine Karten automatisch an kleinere Displays an. Der statische Modus enthält eine ScrollView, um kleinere Geräte und unterschiedliche Inhaltslängen zu unterstützen.
 
 ## Urheberrecht
 App Store Screenshots © 2025 Apple Inc.

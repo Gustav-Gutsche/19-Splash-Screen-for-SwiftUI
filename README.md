@@ -11,8 +11,8 @@
 | **ME & Africa** | [العربية](./Readme/README_AR.md) [Kiswahili](./Readme/README_SW.md) |
 
 ## Version
-**27.0.1 (Stable Release)** <br>
-*Adds a lightweight Apple Sports-inspired Simple Mode alongside the existing carousel and static layouts.*
+**27.0.2 (iOS 17-compatible fork)** <br>
+*All three modes support iOS 17. Includes automatic carousel sizing for smaller phones.*
 
 - **Simple Mode:** Full-screen text-first splash screen with configurable SF Symbol logo, gradient background, footer copy, and inline privacy link.
 - **Seamless Infinite Carousel:** New virtual-index logic prevents "flying cards" and ensures smooth infinite rotation.
@@ -22,10 +22,31 @@
 - **Three Display Modes:** Choose between dynamic `.carousel`, elegant `.static`, and lightweight `.simple` layouts.
 - **Advanced Text Effects:** Beautiful text rendering and transitions using SwiftUI 6.0 features.
 
-## Environment / Tested on
-- 📲 iOS 17.0+ / macOS 14.0+
-- Swift 6.0
-- Xcode 16.0+
+## Requirements
+- iOS 17.0+ or macOS 14.0+
+- Swift 6.0 / Xcode 16.0+ to compile the package
+- iOS 18 is **not** required by a consuming app. The per-glyph text effect uses iOS 18 / macOS 15 when available; older systems use a fade-and-offset entrance.
+
+Minimum supported versions and tested versions are different: this release is verified with Xcode 16.4 and 27.0, iOS 17.5 / 27.2 Simulator, and macOS 14 deployment builds. See [verification](docs/IOS17-COMPATIBILITY.md).
+
+## Install this fork
+
+In Xcode, choose **File → Add Package Dependencies**, enter the URL below and select **Up to Next Major Version**, starting at **27.0.2**:
+
+```text
+https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI
+```
+
+For a Swift package:
+
+```swift
+.package(
+    url: "https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI",
+    from: "27.0.2"
+)
+```
+
+Use this fork URL; the original `1998code` repository requires iOS 18. If an existing project resolves an older revision, update the package requirement and resolve dependencies again.
 
 ## How to use
 Add the package to your project: ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
@@ -99,7 +120,8 @@ SplashScreen(
 
 ## Known Issues
 - On iOS 18+, carousel text uses SwiftUI `TextRenderer` for per-glyph animation. On iOS 17, the same layout and content use a fade-and-offset text entrance.
-- Resizing: Carousel mode is optimized for Pro/Pro Max. Static mode includes a ScrollView to handle smaller devices and varying content lengths. Simple Mode scales its typography and spacing from the device width.
+- The carousel automatically fits its existing card layout to smaller screens. No app-specific scale wrapper is needed. Static mode scrolls its content, and Simple Mode scales from the device width.
+- An empty carousel image array is supported; the title, caption and action remain usable.
 
 ## Copyright
 App Store Screenshots © 2025 Apple Inc.

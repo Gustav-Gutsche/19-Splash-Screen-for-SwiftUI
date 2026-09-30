@@ -80,33 +80,48 @@ public struct SplashScreen: View {
     public var body: some View {
         ZStack {
             if mode == .carousel {
-                // Background image with smooth transition
-                ZStack {
-                    if !photos.isEmpty {
-                        let currentPhoto = photos[min(currentIndex, photos.count - 1)]
-                        SplashScreenImage(photo: currentPhoto)
-                            .id(currentPhoto.id)
-                            .transition(.opacity.animation(.linear(duration: 0.3))) // Faster transition for interactive feel
-                            .ignoresSafeArea(.all)
-                            .blur(radius: 10)
-                    }
+                GeometryReader { geometry in
+                    let layoutHeight = max(geometry.size.height, 840)
+                    let scale = max(geometry.size.height, 1) / layoutHeight
+
+                    carouselLayout
+                        .frame(width: geometry.size.width / scale, height: layoutHeight)
+                        .scaleEffect(scale, anchor: .topLeading)
+                        .frame(width: geometry.size.width, height: geometry.size.height, alignment: .topLeading)
                 }
-                
-                VStack {
-                    pagingRotation
-                        .offset(y: prVisible ? 0 : -500)
-                        .transition(.move(edge: .top))
-                        .animation(.spring(duration: 1.2, bounce: 0.25), value: prVisible)
-                    cta
-                    Spacer()
-                }
-                .background(.black.opacity(0.85))
-                .background(.ultraThinMaterial)
             } else if mode == .static {
                 staticLayout
             } else {
                 simpleLayout
             }
+        }
+    }
+
+    // Keep the carousel on smaller phones instead of requiring an app-specific wrapper.
+    private var carouselLayout: some View {
+        ZStack {
+            // Background image with smooth transition.
+            ZStack {
+                if !photos.isEmpty {
+                    let currentPhoto = photos[min(currentIndex, photos.count - 1)]
+                    SplashScreenImage(photo: currentPhoto)
+                        .id(currentPhoto.id)
+                        .transition(.opacity.animation(.linear(duration: 0.3)))
+                        .ignoresSafeArea(.all)
+                        .blur(radius: 10)
+                }
+            }
+
+            VStack {
+                pagingRotation
+                    .offset(y: prVisible ? 0 : -500)
+                    .transition(.move(edge: .top))
+                    .animation(.spring(duration: 1.2, bounce: 0.25), value: prVisible)
+                cta
+                Spacer()
+            }
+            .background(.black.opacity(0.85))
+            .background(.ultraThinMaterial)
         }
     }
 
@@ -356,19 +371,21 @@ public struct SplashScreen: View {
                 let minIdx = Int(floor(centerIndex)) - visibleRange
                 let maxIdx = Int(ceil(centerIndex)) + visibleRange
                 
-                ForEach(minIdx...maxIdx, id: \.self) { virtualIndex in
-                    let photoIndex = (virtualIndex % photos.count + photos.count) % photos.count
-                    let photo = photos[photoIndex]
-                    let x = CGFloat(virtualIndex) * itemWidth + currentEffectiveOffset
-                    let phase = x / geometry.size.width
-                    
-                    ItemPhoto(photo)
-                        .scaleEffect(1 - abs(phase) * CGFloat(0.025))
-                        .opacity(1 - Double(abs(phase)) * 0.8)
-                        .rotationEffect(.degrees(Double(phase) * 5))
-                        .position(x: centerX + x, y: geometry.size.height / 2)
-                        .zIndex(1 - Double(abs(phase)))
-                        .transition(.identity) // Prevent "flying" or "fading" when range changes
+                if !photos.isEmpty && geometry.size.width > 0 {
+                    ForEach(minIdx...maxIdx, id: \.self) { virtualIndex in
+                        let photoIndex = (virtualIndex % photos.count + photos.count) % photos.count
+                        let photo = photos[photoIndex]
+                        let x = CGFloat(virtualIndex) * itemWidth + currentEffectiveOffset
+                        let phase = x / geometry.size.width
+
+                        ItemPhoto(photo)
+                            .scaleEffect(1 - abs(phase) * CGFloat(0.025))
+                            .opacity(1 - Double(abs(phase)) * 0.8)
+                            .rotationEffect(.degrees(Double(phase) * 5))
+                            .position(x: centerX + x, y: geometry.size.height / 2)
+                            .zIndex(1 - Double(abs(phase)))
+                            .transition(.identity) // Prevent "flying" or "fading" when range changes
+                    }
                 }
             }
             .drawingGroup() // Better for high-speed linear animations

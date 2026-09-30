@@ -9,8 +9,12 @@ import SwiftUI
 import SplashScreenKit
 
 struct ContentView: View {
+    @State private var didContinue = false
     var body: some View {
-        if ProcessInfo.processInfo.arguments.contains("--simple-mode") {
+        if didContinue {
+            Text("Demo ready")
+                .accessibilityIdentifier("demo.ready")
+        } else if ProcessInfo.processInfo.arguments.contains("--simple-mode") {
             SplashScreen(
                 mode: .simple,
                 logoSystemName: "apple.logo",
@@ -18,10 +22,11 @@ struct ContentView: View {
                 product: "Sports",
                 caption: "Get real-time scores, stats, and standings for the teams and leagues you follow.",
                 cta: "Continue"
-            ) {}
+            ) { didContinue = true }
         } else {
             SplashScreen(
-            images: [
+            mode: ProcessInfo.processInfo.arguments.contains("--static-mode") ? .static : .carousel,
+            images: ProcessInfo.processInfo.arguments.contains("--empty-carousel") ? [] : [
                 Photo("Apple TV 1"),
                 Photo("Apple TV 2"),
                 Photo("Apple TV 3"),
@@ -34,8 +39,7 @@ struct ContentView: View {
             caption: "Browse all movies, TV shows, and more from Apple TV+. Watch all Apple Originals here.",
             cta: "Watch Now"
             ) {
-                // Button Action
-                print("Hello, Apple TV!")
+                didContinue = true
             }
         }
     }

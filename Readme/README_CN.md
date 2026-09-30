@@ -1,4 +1,6 @@
 # SplashScreenKit
+
+> **Fork release 27.0.2:** iOS 17.0+ / macOS 14.0+. [Current installation and verification](../README.md#install-this-fork).
 ### SwiftUI 全新启动页 (Splash Screen)
 
 | Region | Languages |
@@ -11,7 +13,7 @@
 <img width="1585" alt="Screenshot 2025-02-10 at 8 18 53 PM" src="https://github.com/user-attachments/assets/7f35a079-f74d-4c35-8f25-ea3239cc645f" />
 
 ## 版本
-**2.2.3 (稳定版本)** <br>
+**27.0.2 (稳定版本)** <br>
 *针对高性能交互进行了优化，确保零卡顿体验。*
 
 - **无缝无限轮播：** 全新的虚拟索引逻辑，防止“卡片飞走”并确保流畅的无限旋转。
@@ -22,12 +24,12 @@
 - **高级文字效果：** 利用 SwiftUI 6.0 功能实现美观的文字渲染和过渡效果。
 
 ## 环境 / 测试平台
-- 📲 需要 iOS 18.0+
+- 📲 需要 iOS 17.0+ / macOS 14.0+
 - Swift 6.0
 - Xcode 16.0+
 
 ## 如何使用
-将包添加到您的项目中： ```https://github.com/1998code/19-Splash-Screen-for-SwiftUI```
+将包添加到您的项目中： ```https://github.com/Gustav-Gutsche/19-Splash-Screen-for-SwiftUI```
 
 ### 轮播模式 (默认)
 经典的图片旋转交互体验。
@@ -75,7 +77,7 @@ SplashScreen(
 <img src="https://github.com/user-attachments/assets/44f9aeef-7906-4251-b338-f9504b30b278" width="350" />
 
 ## 已知问题
-- 仅支持 iOS 18+，利用了最新的 SwiftUI `TextRenderer` 和视觉效果 API。
+- 此分支支持 iOS 17 和 macOS 14。iOS 18 / macOS 15 及以上使用 TextRenderer；旧系统使用淡入和位移过渡。
 - 尺寸调整：轮播模式针对 Pro/Pro Max 进行了优化。静态模式包含 ScrollView 以处理较小的设备和不同的内容长度。
 
 ## 版权
